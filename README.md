@@ -18,7 +18,8 @@ compile the code to HTML and see the output in your browser.
 ```shell
 git clone ssh://git@github.com/neganp/clappifier.git
 cd clappifier
-elm-reactor```
+elm-reactor
+```
 
 
 # Contributing
