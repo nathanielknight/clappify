@@ -24,9 +24,9 @@ charcount s =
                     "yellow"
                 else "black"
     in
-        div
+        span
             [style [ ("color", color)
-                   , ("float", "right")
+                   , ("margin", "0.2em 0.3em")
                    ]
             ]
             [text <| toString n]
@@ -49,8 +49,13 @@ input_box_style =
           , ("resize", "both")
           ]
 
+statusbar_style =
+    style [ ("font-size", "18px") ]
+
 output_style =
     style [ ("font-size", "22px")
+          , ("padding", "0.5em 0")
+          , ("line-height", "110%")
           ]
 
 ---------------------------------------------------------------------
@@ -70,9 +75,14 @@ view model =
                   , value model
                   ]
                   [text model]
-        statusbar = div []
-                    [ button [onClick Clear] [text "Clear"]
-                    , charcount model
+        statusbar = div [ statusbar_style ]
+                    [ charcount model
+                    , button [onClick Clear
+                             , style [ ("font-size", "16px")
+                                     , ("float", "right")
+                                     ]
+                             ]
+                        [text "Clear"]
                     ]
         outputbox = div [id "display-box", output_style] [text <| clappify model]
     in
