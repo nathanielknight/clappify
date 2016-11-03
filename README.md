@@ -31,7 +31,7 @@ elm-make src/Clappify.elm --output outputfile.html
 # Contributing
 
 Pull requests are welcome, but🤔really? There's nothing else you'd
-rather be doing? 🤣
+rather be doing? 😛
 
 
 # License
