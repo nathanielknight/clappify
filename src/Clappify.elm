@@ -127,7 +127,7 @@ view model =
             ]
     in
         div [ page_style ]
-            [ h1 [] [text "clappifier"]
+            [ h1 [] [text "clappify"]
             , sourcelink
             , textbox
             , statusbar
