@@ -7908,11 +7908,80 @@ var _neganp$clappify$Clappify$page_style = _elm_lang$html$Html_Attributes$style(
 			{ctor: '_Tuple2', _0: 'margin', _1: 'auto'},
 			{ctor: '_Tuple2', _0: 'font-family', _1: 'Arial, sans-serif'}
 		]));
+var _neganp$clappify$Clappify$clap2 = '👏🏻';
+var _neganp$clappify$Clappify$clap3 = '👏🏼';
+var _neganp$clappify$Clappify$clap4 = '👏🏽';
+var _neganp$clappify$Clappify$clap5 = '👏🏾';
+var _neganp$clappify$Clappify$clap6 = '👏🏿';
+var _neganp$clappify$Clappify$clap_to_string = function (c) {
+	var _p1 = c;
+	switch (_p1.ctor) {
+		case 'Clap6':
+			return _neganp$clappify$Clappify$clap6;
+		case 'Clap5':
+			return _neganp$clappify$Clappify$clap5;
+		case 'Clap4':
+			return _neganp$clappify$Clappify$clap4;
+		case 'Clap3':
+			return _neganp$clappify$Clappify$clap3;
+		default:
+			return _neganp$clappify$Clappify$clap2;
+	}
+};
+var _neganp$clappify$Clappify$Clap6 = {ctor: 'Clap6'};
+var _neganp$clappify$Clappify$Clap5 = {ctor: 'Clap5'};
+var _neganp$clappify$Clappify$Clap4 = {ctor: 'Clap4'};
+var _neganp$clappify$Clappify$Clap3 = {ctor: 'Clap3'};
+var _neganp$clappify$Clappify$Clap2 = {ctor: 'Clap2'};
+var _neganp$clappify$Clappify$next_clap = function (c) {
+	var _p2 = c;
+	switch (_p2.ctor) {
+		case 'Clap6':
+			return _neganp$clappify$Clappify$Clap5;
+		case 'Clap5':
+			return _neganp$clappify$Clappify$Clap4;
+		case 'Clap4':
+			return _neganp$clappify$Clappify$Clap3;
+		case 'Clap3':
+			return _neganp$clappify$Clappify$Clap2;
+		default:
+			return _neganp$clappify$Clappify$Clap6;
+	}
+};
+var _neganp$clappify$Clappify$add_claps = F3(
+	function (words, clap, result) {
+		add_claps:
+		while (true) {
+			var _p3 = words;
+			if (_p3.ctor === '::') {
+				if (_p3._1.ctor === '[]') {
+					return A2(_elm_lang$core$Basics_ops['++'], result, _p3._0);
+				} else {
+					var _v4 = _p3._1,
+						_v5 = _neganp$clappify$Clappify$next_clap(clap),
+						_v6 = _elm_lang$core$String$concat(
+						_elm_lang$core$Native_List.fromArray(
+							[
+								result,
+								_p3._0,
+								_neganp$clappify$Clappify$clap_to_string(clap)
+							]));
+					words = _v4;
+					clap = _v5;
+					result = _v6;
+					continue add_claps;
+				}
+			} else {
+				return result;
+			}
+		}
+	});
 var _neganp$clappify$Clappify$clappify = function (s) {
-	return A2(
-		_elm_lang$core$String$join,
-		'👏',
-		_elm_lang$core$String$words(s));
+	return A3(
+		_neganp$clappify$Clappify$add_claps,
+		_elm_lang$core$String$words(s),
+		_neganp$clappify$Clappify$Clap6,
+		'');
 };
 var _neganp$clappify$Clappify$charcount = function (s) {
 	var n = _elm_lang$core$String$length(
@@ -8000,7 +8069,7 @@ var _neganp$clappify$Clappify$view = function (model) {
 					[]),
 				_elm_lang$core$Native_List.fromArray(
 					[
-						_elm_lang$html$Html$text('clappify')
+						_elm_lang$html$Html$text('clappifier')
 					])),
 				textbox,
 				statusbar,
