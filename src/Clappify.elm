@@ -49,7 +49,7 @@ clappify s = add_claps (String.words s) Clap6 ""
 charcount : String -> Html Msg
 charcount s =
     let
-        n = String.length <| clappify s
+        n = String.length s
         color = if n > 140 then
                     "red"
                 else if n > 130 then
@@ -101,6 +101,7 @@ type Msg = Clear
 view : Model -> Html Msg
 view model =
     let
+        clappified = clappify model
         textbox = textarea
                   [ onInput NewModel
                   , input_box_style
@@ -108,7 +109,7 @@ view model =
                   ]
                   [text model]
         statusbar = div [ statusbar_style ]
-                    [ charcount model
+                    [ charcount clappified
                     , button [onClick Clear
                              , style [ ("font-size", "16px")
                                      , ("float", "right")
@@ -116,7 +117,7 @@ view model =
                              ]
                         [text "Clear"]
                     ]
-        outputbox = div [id "display-box", output_style] [text <| clappify model]
+        outputbox = div [id "display-box", output_style] [text clappified]
         sourcelink =
             p
             []
