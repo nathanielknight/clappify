@@ -9,10 +9,42 @@ import Html.Events exposing (onInput, onClick)
 
 ---------------------------------------------------------------------
 
+-- clapping hands emoji with Fitzpatrick modifiers
+clap6 = "👏🏿"
+clap5 = "👏🏾"
+clap4 = "👏🏽"
+clap3 = "👏🏼"
+clap2 = "👏🏻"
+
+type Clap = Clap2 | Clap3 | Clap4 | Clap5 | Clap6
+
+clap_to_string c =
+    case c of
+        Clap6 -> clap6
+        Clap5 -> clap5
+        Clap4 -> clap4
+        Clap3 -> clap3
+        Clap2 -> clap2
+
+next_clap c =
+    case c of
+        Clap6 -> Clap5
+        Clap5 -> Clap4
+        Clap4 -> Clap3
+        Clap3 -> Clap2
+        Clap2 -> Clap6
+
+add_claps : List String -> Clap -> String -> String
+add_claps words clap result =
+    case words of
+        w :: [] -> result ++ w
+        w :: ws -> add_claps ws (next_clap clap) (String.concat [result, w, clap_to_string clap])
+        [] -> result
+
 clappify : String -> String
-clappify s = s
-           |> String.words
-           |> String.join "👏"
+clappify s = add_claps (String.words s) Clap6 ""
+
+---------------------------------------------------------------------
 
 charcount : String -> Html Msg
 charcount s =
@@ -87,7 +119,7 @@ view model =
         outputbox = div [id "display-box", output_style] [text <| clappify model]
     in
         div [ page_style ]
-            [ h1 [] [text "clappify"]
+            [ h1 [] [text "clappifier"]
             , textbox
             , statusbar
             , outputbox ]

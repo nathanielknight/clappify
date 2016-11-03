@@ -1,6 +1,6 @@
 # Clappify
 
-Clapping👏in👏tweets👏is👏for👏everyone.
+Emphasis👏🏿with👏🏾clapping👏🏽is👏🏼for👏🏻everyone.
 
 Clappify is an inane webpage that replaces normal text with text
 that has U+1F44F CLAPPING HANDS SIGN 👏 instead of spaces (or tabs, or
