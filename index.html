@@ -8009,6 +8009,24 @@ var _neganp$clappify$Clappify$NewModel = function (a) {
 };
 var _neganp$clappify$Clappify$Clear = {ctor: 'Clear'};
 var _neganp$clappify$Clappify$view = function (model) {
+	var sourcelink = A2(
+		_elm_lang$html$Html$p,
+		_elm_lang$core$Native_List.fromArray(
+			[]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$html$Html$a,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Attributes$href('https://github.com/neganp/clappify'),
+						_elm_lang$html$Html_Attributes$target('blank')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('source code')
+					]))
+			]));
 	var outputbox = A2(
 		_elm_lang$html$Html$div,
 		_elm_lang$core$Native_List.fromArray(
@@ -8071,6 +8089,7 @@ var _neganp$clappify$Clappify$view = function (model) {
 					[
 						_elm_lang$html$Html$text('clappifier')
 					])),
+				sourcelink,
 				textbox,
 				statusbar,
 				outputbox
