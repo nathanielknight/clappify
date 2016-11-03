@@ -117,9 +117,18 @@ view model =
                         [text "Clear"]
                     ]
         outputbox = div [id "display-box", output_style] [text <| clappify model]
+        sourcelink =
+            p
+            []
+            [ a [ href "https://github.com/neganp/clappify"
+                , target "blank"
+                ]
+                  [ text "source code" ]
+            ]
     in
         div [ page_style ]
             [ h1 [] [text "clappifier"]
+            , sourcelink
             , textbox
             , statusbar
             , outputbox ]
