@@ -2,9 +2,9 @@
 
 Emphasis👏🏿with👏🏾clapping👏🏽is👏🏼for👏🏻everyone.
 
-Clappify is an inane webpage that replaces normal text with text
-that has U+1F44F CLAPPING HANDS SIGN 👏 instead of spaces (or tabs, or
-newlines).
+[Clappify](https://neganp.github.io/clappify/) is an inane webpage
+that replaces normal text with text that has U+1F44F CLAPPING HANDS
+SIGN 👏 instead of spaces (or tabs, or newlines).
 
 
 # Building
