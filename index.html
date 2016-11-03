@@ -7908,6 +7908,26 @@ var _neganp$clappify$Clappify$page_style = _elm_lang$html$Html_Attributes$style(
 			{ctor: '_Tuple2', _0: 'margin', _1: 'auto'},
 			{ctor: '_Tuple2', _0: 'font-family', _1: 'Arial, sans-serif'}
 		]));
+var _neganp$clappify$Clappify$charcount = function (s) {
+	var n = _elm_lang$core$String$length(s);
+	var color = (_elm_lang$core$Native_Utils.cmp(n, 140) > 0) ? 'red' : ((_elm_lang$core$Native_Utils.cmp(n, 130) > 0) ? 'yellow' : 'black');
+	return A2(
+		_elm_lang$html$Html$span,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html_Attributes$style(
+				_elm_lang$core$Native_List.fromArray(
+					[
+						{ctor: '_Tuple2', _0: 'color', _1: color},
+						{ctor: '_Tuple2', _0: 'margin', _1: '0.2em 0.3em'}
+					]))
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html$text(
+				_elm_lang$core$Basics$toString(n))
+			]));
+};
 var _neganp$clappify$Clappify$clap2 = '👏🏻';
 var _neganp$clappify$Clappify$clap3 = '👏🏼';
 var _neganp$clappify$Clappify$clap4 = '👏🏽';
@@ -7983,27 +8003,6 @@ var _neganp$clappify$Clappify$clappify = function (s) {
 		_neganp$clappify$Clappify$Clap6,
 		'');
 };
-var _neganp$clappify$Clappify$charcount = function (s) {
-	var n = _elm_lang$core$String$length(
-		_neganp$clappify$Clappify$clappify(s));
-	var color = (_elm_lang$core$Native_Utils.cmp(n, 140) > 0) ? 'red' : ((_elm_lang$core$Native_Utils.cmp(n, 130) > 0) ? 'yellow' : 'black');
-	return A2(
-		_elm_lang$html$Html$span,
-		_elm_lang$core$Native_List.fromArray(
-			[
-				_elm_lang$html$Html_Attributes$style(
-				_elm_lang$core$Native_List.fromArray(
-					[
-						{ctor: '_Tuple2', _0: 'color', _1: color},
-						{ctor: '_Tuple2', _0: 'margin', _1: '0.2em 0.3em'}
-					]))
-			]),
-		_elm_lang$core$Native_List.fromArray(
-			[
-				_elm_lang$html$Html$text(
-				_elm_lang$core$Basics$toString(n))
-			]));
-};
 var _neganp$clappify$Clappify$NewModel = function (a) {
 	return {ctor: 'NewModel', _0: a};
 };
@@ -8027,25 +8026,26 @@ var _neganp$clappify$Clappify$view = function (model) {
 						_elm_lang$html$Html$text('source code')
 					]))
 			]));
-	var outputbox = A2(
-		_elm_lang$html$Html$div,
+	var textbox = A2(
+		_elm_lang$html$Html$textarea,
 		_elm_lang$core$Native_List.fromArray(
 			[
-				_elm_lang$html$Html_Attributes$id('display-box'),
-				_neganp$clappify$Clappify$output_style
+				_elm_lang$html$Html_Events$onInput(_neganp$clappify$Clappify$NewModel),
+				_neganp$clappify$Clappify$input_box_style,
+				_elm_lang$html$Html_Attributes$value(model)
 			]),
 		_elm_lang$core$Native_List.fromArray(
 			[
-				_elm_lang$html$Html$text(
-				_neganp$clappify$Clappify$clappify(model))
+				_elm_lang$html$Html$text(model)
 			]));
+	var clappified = _neganp$clappify$Clappify$clappify(model);
 	var statusbar = A2(
 		_elm_lang$html$Html$div,
 		_elm_lang$core$Native_List.fromArray(
 			[_neganp$clappify$Clappify$statusbar_style]),
 		_elm_lang$core$Native_List.fromArray(
 			[
-				_neganp$clappify$Clappify$charcount(model),
+				_neganp$clappify$Clappify$charcount(clappified),
 				A2(
 				_elm_lang$html$Html$button,
 				_elm_lang$core$Native_List.fromArray(
@@ -8063,17 +8063,16 @@ var _neganp$clappify$Clappify$view = function (model) {
 						_elm_lang$html$Html$text('Clear')
 					]))
 			]));
-	var textbox = A2(
-		_elm_lang$html$Html$textarea,
+	var outputbox = A2(
+		_elm_lang$html$Html$div,
 		_elm_lang$core$Native_List.fromArray(
 			[
-				_elm_lang$html$Html_Events$onInput(_neganp$clappify$Clappify$NewModel),
-				_neganp$clappify$Clappify$input_box_style,
-				_elm_lang$html$Html_Attributes$value(model)
+				_elm_lang$html$Html_Attributes$id('display-box'),
+				_neganp$clappify$Clappify$output_style
 			]),
 		_elm_lang$core$Native_List.fromArray(
 			[
-				_elm_lang$html$Html$text(model)
+				_elm_lang$html$Html$text(clappified)
 			]));
 	return A2(
 		_elm_lang$html$Html$div,
