@@ -1,24 +1,30 @@
-# Clappifier
+# Clappify
 
 Clapping👏in👏tweets👏is👏for👏everyone.
 
-Clappifier is an inane webpage that replaces normal text with text
+Clappify is an inane webpage that replaces normal text with text
 that has U+1F44F CLAPPING HANDS SIGN 👏 instead of spaces (or tabs, or
 newlines).
 
 
 # Building
 
-Clappifier is built with Elm, so if you want to build it yourself
+Clappify is built with Elm, so if you want to build it yourself
 you'll have to
 [install elm](https://guide.elm-lang.org/get_started.html). Once
 you've done that, clone the repository. You can use `elm-reactor` to
 compile the code to HTML and see the output in your browser.
 
 ```shell
-git clone ssh://git@github.com/neganp/clappifier.git
-cd clappifier
+git clone ssh://git@github.com/neganp/clappify.git
+cd clappify
 elm-reactor
+```
+
+You can build a standalone html file with
+
+```shell
+elm-make src/Clappify.elm --output outputfile.html
 ```
 
 

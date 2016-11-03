@@ -1,7 +1,7 @@
 {
     "version": "0.0.1",
     "summary": "Emphaisize your text with emoji",
-    "repository": "https://github.com/neganp/clappifier.git",
+    "repository": "https://github.com/neganp/clappify.git",
     "license": "BSD3",
     "source-directories": [
         "src"

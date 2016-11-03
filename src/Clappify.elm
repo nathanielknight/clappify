@@ -1,4 +1,4 @@
-module Clappifier exposing(main)
+module Clappify exposing(main)
 
 import String
 
